@@ -1,0 +1,275 @@
+.stpm-panel {
+    position: relative;
+    z-index: 120;
+    width: 100%;
+    padding: 0 0.75rem;
+    margin: 0.08rem 0 0.28rem;
+    pointer-events: none;
+}
+
+.stpm-panel.stpm-hidden {
+    display: none;
+}
+
+.stpm-panel-inner {
+    position: relative;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 50px;
+    padding: 0.42rem 0.52rem;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05)),
+        color-mix(in srgb, var(--SmartThemeBlurTintColor, rgba(36, 38, 44, 0.44)) 78%, rgba(255, 255, 255, 0.12) 22%);
+    color: rgba(245, 247, 250, 0.96);
+    backdrop-filter: blur(26px) saturate(1.18);
+    -webkit-backdrop-filter: blur(26px) saturate(1.18);
+    box-shadow:
+        0 10px 30px rgba(7, 10, 18, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    overflow: hidden;
+}
+
+.stpm-panel-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 38%);
+    opacity: 0.9;
+}
+
+.stpm-accent {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 3px;
+    align-self: stretch;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.42);
+}
+
+.stpm-summary {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+        "title text count"
+        "name text count";
+    align-items: center;
+    gap: 0.02rem 0.65rem;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.stpm-summary:hover,
+.stpm-summary:focus-visible {
+    opacity: 0.97;
+}
+
+.stpm-title {
+    grid-area: title;
+    font-size: 0.68rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: rgba(237, 241, 246, 0.62);
+}
+
+.stpm-item-name {
+    grid-area: name;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.82rem;
+    font-weight: 560;
+    line-height: 1.1;
+    color: rgba(249, 250, 252, 0.96);
+}
+
+.stpm-item-text {
+    grid-area: text;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.79rem;
+    line-height: 1.18;
+    color: rgba(233, 237, 243, 0.72);
+}
+
+.stpm-counter {
+    grid-area: count;
+    justify-self: end;
+    align-self: center;
+    padding: 0.14rem 0.4rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 0.73rem;
+    white-space: nowrap;
+    color: rgba(237, 240, 245, 0.64);
+}
+
+.stpm-controls {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+}
+
+.stpm-list-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.95rem;
+    height: 1.95rem;
+    border: 0;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.045);
+    color: rgba(241, 244, 248, 0.76);
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.stpm-list-toggle:hover,
+.stpm-list-toggle:focus-visible,
+.stpm-list-toggle-active {
+    background: rgba(255, 255, 255, 0.09);
+    color: rgba(250, 251, 252, 0.94);
+}
+
+.stpm-dropdown {
+    pointer-events: auto;
+    margin-top: 0.34rem;
+    padding: 0.34rem;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.04)),
+        color-mix(in srgb, var(--SmartThemeBlurTintColor, rgba(36, 38, 44, 0.5)) 82%, rgba(255, 255, 255, 0.11) 18%);
+    backdrop-filter: blur(28px) saturate(1.16);
+    -webkit-backdrop-filter: blur(28px) saturate(1.16);
+    box-shadow:
+        0 14px 34px rgba(7, 10, 18, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.stpm-hidden {
+    display: none;
+}
+
+.stpm-dropdown-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+        "name meta"
+        "text meta";
+    gap: 0.16rem 0.55rem;
+    width: 100%;
+    padding: 0.56rem 0.65rem;
+    border: 0;
+    border-radius: 13px;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.stpm-dropdown-item:hover,
+.stpm-dropdown-item:focus-visible,
+.stpm-dropdown-item-active {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.stpm-dropdown-name {
+    grid-area: name;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.81rem;
+    font-weight: 560;
+    color: rgba(248, 249, 251, 0.95);
+}
+
+.stpm-dropdown-text {
+    grid-area: text;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.77rem;
+    color: rgba(232, 236, 242, 0.7);
+}
+
+.stpm-dropdown-meta {
+    grid-area: meta;
+    align-self: center;
+    font-size: 0.72rem;
+    color: rgba(235, 239, 244, 0.54);
+}
+
+.extraMesButtons .stpm-toggle {
+    order: 998;
+}
+
+.stpm-toggle.stpm-active {
+    color: rgba(247, 249, 252, 0.96);
+}
+
+#chat .mes.stpm-message-pinned .mes_block {
+    box-shadow: inset 2px 0 0 rgba(255, 255, 255, 0.22);
+}
+
+#chat .mes.stpm-highlight .mes_block {
+    animation: stpm-pulse 1.15s ease;
+}
+
+@keyframes stpm-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.18);
+    }
+    45% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+@media (max-width: 900px) {
+    .stpm-panel {
+        padding: 0 0.45rem;
+    }
+
+    .stpm-panel-inner {
+        gap: 0.42rem;
+        padding: 0.42rem 0.48rem;
+    }
+
+    .stpm-summary {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "title count"
+            "name name"
+            "text text";
+        gap: 0.1rem 0.5rem;
+    }
+
+    .stpm-item-text {
+        font-size: 0.76rem;
+    }
+}
